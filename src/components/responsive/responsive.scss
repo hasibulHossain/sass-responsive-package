@@ -1,0 +1,49 @@
+@import "~include-media/dist/_include-media.scss";
+
+$mobileS: '20em';
+$mobileM: '23.43em';
+$mobileL: '26.6em';
+$tablet: '48em';
+$laptop: '64em';
+$desktop: '90em';
+$fourK: '160em';
+
+@mixin after($value) {
+   &::after {
+      padding: 5px 5px;
+      background-color: powderblue;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      content: $value;
+   }
+}
+
+.responsive {
+   width: 100%;
+   height: 100vh;
+   background-color: red;
+   position: relative;
+
+   @include media(">=#{$mobileS}", "<#{$mobileM}") { 
+      background-color: orchid;
+
+      @include after('phone small')
+   }
+
+   @include media(">=#{$mobileM}", "<#{$mobileL}") { 
+      background-color: rebeccapurple;
+
+      @include after('phone medium')
+   }
+
+   @include media(">=#{$mobileL}", "<#{$tablet}") {
+      background-color: rosybrown;
+
+      @include after('phone large')
+   }
+
+}

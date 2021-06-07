@@ -1,0 +1,146 @@
+@import "~include-media/dist/_include-media.scss";
+
+.container {
+   background-color: springgreen;
+   width: 100%;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   // flex-wrap: wrap;
+   justify-content: space-around;
+
+   @include media("<375px") {
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      &__box {
+         &:not(:last-child) {
+            margin: 0px
+         }
+      }
+
+   }
+
+   &__box {
+      // width: 25%;
+      // height: 100px;
+      background-color: turquoise;
+
+      padding: 40px;
+      // margin: 10px;
+      text-align: center;
+
+      flex-grow: 1;
+
+      &:not(:last-child) {
+         margin-right: 10px;
+      }
+      @include media("<375px") {
+         &:not(:last-child) {
+            margin-right: 0px;
+            margin-bottom: 10px;
+         }
+      }
+      // &:first-child {
+      //    flex-basis: 40%;
+      // }
+   }
+
+   // &__box--big {
+   //    flex-grow: 2;
+   // }
+}
+
+.header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   // background-color: wheat;
+
+   &__brand-name {
+      color: tomato;
+
+      & svg {
+         width: 3em;
+         height: auto;
+      }
+
+   }
+
+   &__search-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 1 35%;
+
+      &__search {
+         width: 90%;
+         background-color: #e6e6e6;
+         border: none;
+         border-radius: 50px;
+         padding: 8px 1em;
+         transition: all 300ms ease-in-out;
+
+         &:focus {
+            outline: none;
+            width: 100%;
+         }
+      }
+
+      & svg {
+         margin-left: -2em;
+      }
+
+   }
+
+   &__user-section {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      background-color: #e6e6e6;
+
+      & > * {
+         padding: 0em 1em;
+         height: 100%;
+         display: flex;
+         align-items: center;
+         transition: all .3s;
+
+         &:not(:last-child) {
+            border-right: 1px solid #d6d4d4;
+         }
+
+         & svg {
+            color: #333;
+            width: 1.3em;
+            height: auto;
+         }
+
+         &:hover {
+            background-color: rgb(214, 212, 212);
+            cursor: pointer;
+         }
+      }
+
+      &__message {
+         
+      }
+
+      &__notification {
+
+      }
+
+      &__user {
+         
+         &__photo {
+            height: 2.3em;
+            border-radius: 50%;
+         }
+
+         &__name {
+            margin-left: 0.6em;
+         }
+      }
+
+   }
+}
